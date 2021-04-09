@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { formidable } from 'formidable'
+import formidable from 'formidable'
 
 declare global {
     namespace Express {
@@ -11,7 +11,7 @@ declare global {
 }
 
 const promiseForm = (req: Request): Promise<any> => {
-    const form = formidable({ multiples: true });
+    const form = new formidable({ multiples: true });
     return new Promise((resolve, reject) => {
         form.parse(req, (err: any, fields: any, files: any) => {
             if (err) reject(err);

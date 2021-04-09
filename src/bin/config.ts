@@ -17,8 +17,7 @@ export const configApp = (app: Application, config?: Function) => {
     app.use(cors());
     app.use(express.static(path.join(path.resolve(), 'public')));
     app.disable('x-powered-by');
-    app.use(loadControllers("controllers/*.ts", { cwd: __dirname }))
-
+    app.use(loadControllers("controllers/*.ts", { cwd: path.join(path.resolve(), 'src') }))
 
     if (config != undefined) config(app);
 }

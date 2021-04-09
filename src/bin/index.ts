@@ -3,7 +3,8 @@ import { Application } from 'express'
 import { createServer } from './server'
 import { configApp } from './config'
 import loadDependencies from './dependencies'
-import { route, middleware, PUT, PATCH, POST, GET, DELETE, OPTIONS, Request, Response } from './router'
+import { Request, Response } from 'express'
+import { GET, route, before as middleware, POST, PATCH, PUT, OPTIONS, DELETE } from 'awilix-express';
 const express = require('express');
 
 export {

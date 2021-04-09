@@ -9,11 +9,16 @@ export class DefaultController {
 
     constructor(private readonly userService: UserService) { }
 
+    @route('')
+    public index(req: Request, res: Response) {
+        res.json({ ok: true })
+    }
+
     @route('all')
     @GET()
     public async all(req: Request, res: Response) {
+        console.log('llega');
         let result = await this.userService.all();
-        req.emitEvent('apply', { name: 'Luis' });
         return res.json(result);
     }
 
